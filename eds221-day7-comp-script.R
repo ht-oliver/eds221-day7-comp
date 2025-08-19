@@ -35,5 +35,46 @@ penguins %>%
 penguins
 
 
-            
-  
+animals <- data.frame(
+  stringsAsFactors = FALSE,
+          location = c("beach", "lagoon", "bluff", "oaks"),
+    full_site_name = c("Goleta Beach","UCSB Lagoon",
+                       "Ellwood Mesa","Fremont Campground"),
+      jurisdiction = c("SB City", "UCSB", "SB City", "USFS")
+)
+
+
+sites <- data.frame(
+  stringsAsFactors = FALSE,
+          location = c("lagoon", "bluff", "creek", "oaks", "bluff"),
+           species = c("bobcat", "coyote", "fox", "squirrel", "bobcat"),
+          maturity = c("adult", "juvenile", "adult", "juvenile", "adult")
+)
+
+# practice with a full_join
+
+full_join(animals, sites)
+
+left_join(animals, sites)            
+
+right_join(sites, animals)  
+
+inner_join(animals, sites)
+
+
+# Now filtering joins
+
+# these two are the same
+semi_join(animals, sites)
+
+animals %>% 
+  filter(location %in% sites$location)
+
+
+# these two are the same
+anti_join(animals, sites)  
+
+animals %>% 
+  filter(!location$ sites$location)
+
+
