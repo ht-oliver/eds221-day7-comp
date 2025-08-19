@@ -77,4 +77,32 @@ anti_join(animals, sites)
 animals %>% 
   filter(!location$ sites$location)
 
+# practice with lubridate
+my_date <- "03-14-2023"
+lubridate::mdy(my_date) # Fixed date to ISO 8601
+
+# New format for date
+my_date <- "08-Jun-1940"
+lubridate::dmy(my_date)
+
+# New format for date
+my_date <- "July 17th '20"
+lubridate::mdy(my_date)
+
+# What happens if we give it a date that doesn't make sense
+lubridate::mdy("Mar twenty-5 1894")
+
+# Working with date times
+my_time <- "2020-08-20 06:18:35.44"
+lubridate::ymd_hms(my_time)
+
+# convert to PDT
+with_tz(my_time, "America/Los_Angeles")
+
+
+#extract info from dates
+week(my_time)
+year(my_time)
+day(my_time)
+
 
